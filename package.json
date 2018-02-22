@@ -1,0 +1,30 @@
+{
+  "name": "easter-egg-hunt",
+  "version": "1.0.0",
+  "description": "A simple easter egg hunting game server",
+  "main": "server.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjbaig/easter-egg-hunt.git"
+  },
+  "keywords": [
+    "easter",
+    "egg"
+  ],
+  "author": "Maz Baig",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mjbaig/easter-egg-hunt/issues"
+  },
+  "homepage": "https://github.com/mjbaig/easter-egg-hunt#readme",
+  "dependencies": {
+    "chai": "^4.1.2",
+    "koa": "^2.5.0",
+    "koa-router": "^7.4.0",
+    "mocha": "^5.0.1",
+    "sqlite3": "^3.1.13"
+  }
+}
