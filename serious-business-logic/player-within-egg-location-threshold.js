@@ -1,10 +1,10 @@
 'use strict'
 
-const distanceRadiusThreshold = 1;
+const distanceRadiusThreshold = 2.4;
 
 const EGGLOCATIONS = [
-    {x:1,y:2,z:3},
-    {x:3,y:4,z:7}
+    {x:-.92,y:.022,z:.67},
+    {x:-3,y:-.04,z:2.2}
 ]
 
 function playerWithinAcceptableBounds(playerX,playerY,playerZ){
