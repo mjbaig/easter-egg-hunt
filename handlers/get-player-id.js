@@ -7,7 +7,7 @@ async function getPlayerId(ctx, next){
         var database = await databasePromise;
         var randomlyGeneratedPlayerId = crypto.randomBytes(10).toString('hex');
     
-        await database.exec(`INSERT INTO player_scores (playerId, points) VALUES ('`+randomlyGeneratedPlayerId+`', `+0+`);`);    
+        await database.exec(`INSERT INTO player_scores (playerId, points, reportedEggs) VALUES ('`+randomlyGeneratedPlayerId+`', `+0+`, '{}');`);    
     
         ctx.body = {playerId: randomlyGeneratedPlayerId};
 
