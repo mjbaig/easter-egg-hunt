@@ -14,7 +14,8 @@ const databasePromise = sqlite.open('./easter-egg.sqlite', { cached: true, Promi
 		await database.exec(`
         CREATE TABLE IF NOT EXISTS player_scores (
 				playerId text PRIMARY KEY,
-				points integer NOT NULL
+                points integer NOT NULL,
+                reportedEggs text
 			)
         `);
 	} catch(e){ 

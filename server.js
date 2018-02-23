@@ -4,17 +4,16 @@ const Koa = require('koa');
 const Router = require('koa-router');
 const checkForEggHandler = require('./handlers/check-for-egg');
 const getPlayerId = require('./handlers/get-player-id');
+const reportLostEgg = require('./handlers/report-lost-egg');
 
 var app = new Koa();
 var router = new Router();
 
-const PORT = 8080;
+const PORT = 4200;
 
 router.get('/player-id', getPlayerId);
 
-router.post('/:playerId/:playerLocation/report-lost-egg', async (ctx, next) => {
-	ctx.body = ctx.params;
-});
+router.post('/:playerId/report-lost-egg/:playerLocation', reportLostEgg);
 
 router.get('/:playerLocation/check-for-egg', checkForEggHandler);
 
