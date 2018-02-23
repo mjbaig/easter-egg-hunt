@@ -33,7 +33,6 @@ async function saveLostEggData(playerId, playerLocation){
         
         var database = await databasePromise;
         var playerData = (await database.get(`SELECT * FROM player_scores WHERE playerId = ?`, playerId));
-        console.log(playerData);
         var currentPoints = playerData.points;
         var reportedEggsMap = JSON.parse(playerData.reportedEggs);
 
@@ -51,7 +50,6 @@ async function saveLostEggData(playerId, playerLocation){
                 WHERE
                     playerId = '`+playerId+`'
             `);
-            console.log(await database.all(`select * from player_scores`));
             response = {points: incrementedPoints};
         }
     }catch(e){
