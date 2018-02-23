@@ -1,21 +1,29 @@
-const sqlite = require('sqlite3').verbose();
-const db = new sqlite.Database('memory');
+'use strict'
 
-db.serialize(() => {
-	db.run("create table lorem (info text)");
-	
-	var statement = db.prepare('insert into lorem values (?)');
+const Koa = require('koa');
+const Router = require('koa-router');
+const checkForEggHandler = require('./handlers/check-for-egg');
+const getPlayerId = require('./handlers/get-player-id');
 
-	for (var i = 0; i< 10; i++){
-		statement.run("Ipsum" + i );
-	}
+var app = new Koa();
+var router = new Router();
 
-	statement.finalize();
+const PORT = 8080;
 
-	db.each("select rowid as id, info from lorem", function(error, row){
-		console.log(row.id + ": " + row.info);
-	});
+router.get('/player-id', getPlayerId);
 
+router.post('/:playerId/:playerLocation/report-lost-egg', async (ctx, next) => {
+	ctx.body = ctx.params;
 });
 
-db.close()
+router.get('/:playerLocation/check-for-egg', checkForEggHandler);
+
+app
+.use(router.routes())
+.use(router.allowedMethods);
+
+
+app
+.listen(PORT, () => {
+	console.log("listening on port: ",PORT)
+});
