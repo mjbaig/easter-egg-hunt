@@ -13,7 +13,7 @@ const PORT = 4200;
 
 router.get('/player-id', getPlayerId);
 
-router.post('/:playerId/report-lost-egg/:playerLocation', reportLostEgg);
+router.get('/:playerId/report-lost-egg/:playerLocation', reportLostEgg);
 
 router.get('/:playerLocation/check-for-egg', checkForEggHandler);
 
